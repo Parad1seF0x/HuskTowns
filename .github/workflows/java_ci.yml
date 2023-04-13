@@ -21,4 +21,10 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
-          arguments: test
+          arguments: -Djar.archiveName=Testfile-12634.jar
+      - name: 'Upload Artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: /home/runner/work/HuskTowns/HuskTowns/build/libs/Testfile-12634.jar
+          retention-days: 5
